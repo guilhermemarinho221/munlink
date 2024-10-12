@@ -11,7 +11,7 @@
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(0, 0, 0, 0.5);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
-    --highlit-color: rgba(0, 0, 0, 0.2);
+    --highlit-color: rgba(0, 0, 0, 0.4);
     --switch-bg-url: url(./assets/MoonStars.svg);
     
 }
@@ -80,17 +80,20 @@ body * {
 
     position: absolute;
     top: 50%;
-    right: 0;
+    left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: on-root 0.4s;
     
 
 }
 
 .light #switch button{
-    right: initial;
-    left: 0;
+    animation: onlight 0.4s forwards;
 
+}
+#switch button:hover {
+    outline: 8px solid var(--highlit-color) ;
 }
 #switch span{
     display: block;
@@ -170,5 +173,22 @@ footer{
     }
     .light{
         --bg-url: url(./assets/bg-mobile-light.jpg);
+    }
+}
+@keyframes onlight {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+
+}
+@keyframes on-root {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
